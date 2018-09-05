@@ -45,18 +45,23 @@ public class GreetingController {
 	
     @Autowired
     private MongoTemplate mongoTemplate;
+    //mapowanie rest
+	
     
-	@RequestMapping( method = {RequestMethod.POST})
+    @RequestMapping( method = {RequestMethod.POST})
 	@CrossOrigin(origins = "http://145.239.87.1:4200")
 	   public String create(@RequestBody String json_data) {
 	      data = json_data;
-	 //   Quote dane = new Quote(quote);
+	    
 	      
+	      // wysłanie json do mongo  
 	      Document doc = Document.parse(data);
 	       mongoTemplate.insert(doc, "dane");
 	       
 
 			      File log = new File("/ang-form/src/data/log.json");
+			     
+			      //skomplikowany system tworzenia formatu pliku json tak aby czytała to tabelka zwrotna
 			      try{
 			    	   FileWriter fileWriter = new FileWriter(log,true);
 			    	   FileReader filereader = new FileReader(log);
@@ -114,7 +119,7 @@ public class GreetingController {
 	     
 	   }
 	 
-	 
+	 // mapowanie resta
 	 @RequestMapping(method=RequestMethod.GET)
 	 @ResponseBody
 	 public String getAll() {
@@ -125,8 +130,4 @@ public class GreetingController {
   }
 
 
-//<dependency>
-//<groupId>org.springframework.data</groupId>
-//<artifactId>spring-data-mongodb</artifactId>
-//</dependency>
  
