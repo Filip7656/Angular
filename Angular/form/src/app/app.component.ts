@@ -24,7 +24,7 @@ export class AppComponent {
   onSubmit() {
     //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
     //
-    this.http.post('http://145.239.87.1:8080/json',  JSON.stringify(this.model),httpOptions)
+    this.http.post('http://localhost:8080/json',  JSON.stringify(this.model),httpOptions)
       .subscribe(
         res => {
           console.log(res);
