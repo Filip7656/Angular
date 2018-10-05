@@ -35,24 +35,5 @@ export class AppComponent {
       );
 
   }
-  updateRecord() {
-    console.log('ddddd');
-    var data = {"firstName" : event.newData.firstName,
-                "lastName" : event.newData.lastName,
-                "email" : event.newData.email,
-                "password" : event.newData.password
-                };
-  this.http.put('/update', data).subscribe(
-        res => {
-          console.log(res);
-          event.confirm.resolve(event.newData);
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log("Client-side error occured.");
-        } else {
-          console.log("Server-side error occured.");
-        }
-      });
-  }
+
 }
