@@ -8,6 +8,6 @@ export class TableService {
   getCharacters() {
     return this
             .http
-            .get(`${this.url}/json`);
+            .get(`${this.url}/user`);
         }
 }

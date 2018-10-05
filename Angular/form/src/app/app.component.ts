@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Http } from '@angular/http';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpErrorResponse} from '@angular/common/http';
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -22,9 +23,7 @@ export class AppComponent {
      }
 
   onSubmit() {
-    //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
-    //
-    this.http.post('http://localhost:8080/json',  JSON.stringify(this.model),httpOptions)
+    this.http.post('http://localhost:8080/user',  JSON.stringify(this.model),httpOptions)
       .subscribe(
         res => {
           console.log(res);
@@ -33,7 +32,6 @@ export class AppComponent {
           console.log("Error occured" + err);
         }
       );
-
   }
 
 }
