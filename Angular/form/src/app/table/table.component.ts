@@ -82,7 +82,7 @@ export class TableComponent implements OnInit {
     console.log('Deleting user');
     var data = event.data	;
 
-  this.http.put('http://localhost:8080/user/delete', data).subscribe(
+  this.http.delete('http://localhost:8080/user/delete/' + data.uid).subscribe(
         res => {
           console.log(res);
           event.confirm.resolve(event.newData);
