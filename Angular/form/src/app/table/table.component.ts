@@ -38,6 +38,9 @@ export class TableComponent implements OnInit {
       password: {
         title: 'Password'
       },
+      active:{
+        title: 'Active'
+      }
     }
   };
 
